@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>必一体育 · 运动生活方式平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f7f5f2;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e1e1e;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page {
+            max-width: 720px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 3rem 2.2rem 4rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.02);
+        }
+        @media (max-width: 500px) {
+            .page {
+                padding: 2rem 1.2rem 3rem;
+                border-radius: 20px;
+            }
+        }
+        /* 主视觉 — 柔和渐变区域 */
+        .hero {
+            background: linear-gradient(145deg, #eef1eb 0%, #e4e9df 100%);
+            border-radius: 24px;
+            padding: 2.8rem 1.8rem;
+            margin-bottom: 2.8rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #1f3a2b;
+            margin-bottom: 0.6rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #3e4f42;
+            max-width: 480px;
+            margin: 0 auto;
+            font-weight: 380;
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+        }
+        /* 标题层级 */
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #1e3a2a;
+            margin: 2.6rem 0 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid #e1e7de;
+        }
+        h2:first-of-type {
+            margin-top: 0.2rem;
+        }
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 480;
+            color: #2b4234;
+            margin: 1.4rem 0 0.5rem;
+        }
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.2rem 0 0.4rem;
+        }
+        @media (max-width: 500px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+        .info-card {
+            background: #f6f9f5;
+            border-radius: 20px;
+            padding: 1.4rem 1.2rem;
+            transition: box-shadow 0.2s, background 0.2s;
+            border: 1px solid #e9eee6;
+        }
+        .info-card:hover {
+            background: #f0f4ed;
+            box-shadow: 0 6px 14px rgba(0, 20, 10, 0.04);
+        }
+        .info-card .emoji-tag {
+            display: inline-block;
+            font-size: 1.8rem;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+        .info-card h4 {
+            font-size: 1.1rem;
+            font-weight: 520;
+            color: #1a3526;
+            margin: 0.2rem 0 0.3rem;
+        }
+        .info-card p {
+            font-size: 0.92rem;
+            color: #3e5245;
+            line-height: 1.5;
+        }
+        /* 人群列表 — 简约无装饰 */
+        .audience-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1rem;
+            margin: 0.8rem 0 1.2rem;
+            list-style: none;
+        }
+        .audience-list li {
+            background: #eff2ec;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            color: #1f3f2d;
+            letter-spacing: 0.01em;
+        }
+        /* 自然链接段落 */
+        .link-paragraph {
+            background: #f3f6f1;
+            padding: 1.6rem 1.6rem;
+            border-radius: 20px;
+            margin: 2rem 0 1.2rem;
+            font-size: 1rem;
+            color: #1f3329;
+        }
+        .link-paragraph a {
+            color: #1d6b3c;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+        .link-paragraph a:hover {
+            color: #0d4d2a;
+            text-decoration-thickness: 2px;
+        }
+        /* FAQ 摘要 */
+        .faq-item {
+            margin: 1rem 0;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e3e8e0;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-question {
+            font-weight: 490;
+            font-size: 1rem;
+            color: #11271d;
+            margin-bottom: 0.2rem;
+        }
+        .faq-answer {
+            font-size: 0.95rem;
+            color: #435648;
+            line-height: 1.5;
+        }
+        .small-note {
+            font-size: 0.85rem;
+            color: #6a7f71;
+            margin-top: 0.4rem;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #dde3da;
+            margin: 2rem 0 1rem;
+        }
+        .footer-meta {
+            font-size: 0.85rem;
+            color: #75897c;
+            text-align: center;
+            margin-top: 2.2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero 主视觉 -->
+    <div class="hero">
+        <h1>必一体育</h1>
+        <p>在寻常的运动里，找到不寻常的节奏。<br>一个让身体和心情自然舒展的地方。</p>
+    </div>
+
+    <!-- 用途卡片：运动生活场景 -->
+    <h2>运动一刻 · 日常使用场景</h2>
+    <div class="card-grid">
+        <div class="info-card">
+            <div class="emoji-tag">🏃</div>
+            <h4>晨间激活</h4>
+            <p>十分钟轻量的跑前拉伸，或是一段跟着感觉走的慢跑。不用刻意追求距离，动起来就已足够。</p>
+        </div>
+        <div class="info-card">
+            <div class="emoji-tag">🧘</div>
+            <h4>居家舒展</h4>
+            <p>客厅角落、瑜伽垫上，用几组温和的流动体式缓解久坐的僵硬。呼吸比动作更重要。</p>
+        </div>
+        <div class="info-card">
+            <div class="emoji-tag">🚴</div>
+            <h4>周末骑旅</h4>
+            <p>骑一辆车，沿着河岸或林荫道，不设终点。速度不是目的，风与视野才是收获。</p>
+        </div>
+        <div class="info-card">
+            <div class="emoji-tag">🏋️</div>
+            <h4>力量基础</h4>
+            <p>自重深蹲、俯卧撑、平板支撑——简单的动作重复做，慢慢感受核心的稳定与进步。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <h2>为这样的你准备</h2>
+    <ul class="audience-list">
+        <li>运动初学者</li>
+        <li>恢复期想温和活动的人</li>
+        <li>不喜欢竞技压力的爱好者</li>
+        <li>寻找日常运动灵感的上班族</li>
+        <li>愿意从微小习惯开始改变的人</li>
+    </ul>
+    <p class="small-note">不论年龄或体能基础，只要你想用运动的方式照顾身体，这里就有一份参考。</p>
+
+    <!-- 自然链接段落（核心） -->
+    <div class="link-paragraph">
+        如果你在寻找一种更自然、可持续的运动陪伴，不妨了解一下 
+        <a href="https://china-biyisports.com">必一体育</a> 
+        所提供的思路与内容。它不强调极限突破，而是把运动拉回日常生活——就像准备一杯温水那样简单。
+    </div>
+
+    <!-- FAQ 摘要：克制而有用 -->
+    <h2>你可能想了解</h2>
+    <div class="faq-item">
+        <div class="faq-question">❔ 一定要有运动基础才能开始吗？</div>
+        <div class="faq-answer">不需要。大部分建议都从低强度、短时间开始，你可以根据自己的状态慢慢调整。关键是保持自己的节奏。</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">❔ 每周运动多久比较合适？</div>
+        <div class="faq-answer">从两到三次、每次二十到三十分钟开始，身体适应后再逐步增加。规律比时长更重要，哪怕只有十分钟也会带来变化。</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">❔ 如何避免运动后的不适？</div>
+        <div class="faq-answer">运动前适当热身、运动后温和拉伸，同时注意补充水分。如果某个动作引起疼痛，就减小幅度或暂时跳过。倾听身体的信号最可靠。</div>
+    </div>
+
+    <hr>
+    <div class="footer-meta">
+        <span>以温和的方式，与运动相处。</span>
+    </div>
+</div>
+</body>
+</html>
